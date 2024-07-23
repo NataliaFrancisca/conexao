@@ -1,0 +1,70 @@
+@mixin button(){
+    padding: 21px 10px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 4px 4px #004fa7;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease-in-out 0.3s;
+    background-color: $blue-color;
+    color: $white-color;
+
+    &:hover {
+        transition: all ease-in-out 0.4s;
+        box-shadow: 6px 6px #004fa7;
+    }
+
+    &.btn__bg-google{
+        @include buttonGoogle();
+    }
+
+    &.btn__with-image {
+        @include buttonWithImage();
+    }
+    
+    &.btn__bg-red {
+        @include buttonRed();
+    }
+    
+    &.btn__bg-green {
+        @include buttonGreen();
+    }
+}
+
+@mixin buttonWithImage() {
+    display: grid;
+    grid-template-columns: 30px auto;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+@mixin buttonGoogle() {
+    background-color: $btn-google-color;
+    box-shadow: 4px 4px #7a251e;
+  
+    &:hover {
+      box-shadow: 6px 6px #7a251e;
+    }
+  }
+  
+@mixin buttonRed() {
+    background-color: $red-color;
+    box-shadow: 4px 4px $btn-red-shadow-color;
+
+    &:hover {
+        box-shadow: 6px 6px $btn-red-shadow-color;
+    }
+}
+  
+@mixin buttonGreen() {
+    background-color: $green-color;
+    box-shadow: 4px 4px $btn-green-shadow-color;
+  
+    &:hover {
+      box-shadow: 6px 6px $btn-green-shadow-color;
+    }
+}

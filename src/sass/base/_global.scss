@@ -11,3 +11,6 @@ body {
     display: flex;
 }
   
+button{
+    @include button();
+}

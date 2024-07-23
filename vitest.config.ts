@@ -9,7 +9,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
     },
-    setupFiles: ['vitest-setup-ts'],
+    setupFiles: ['vitest-setup.ts'],
     css: true,
     globals: true,
   },

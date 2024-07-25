@@ -1,3 +1,94 @@
+@mixin form(){
+    display: flex;
+    flex-direction: column;
+
+    & legend{
+        font-size: 20px;
+        font-weight: 400;
+
+        & span.styled{
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+
+    & label{
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    & input[type=text], input[type=email], input[type=password]{
+        padding: 14px 20px;
+        border-radius: 10px;
+        border: solid $black-color 2px;
+        box-shadow: 2px 2px $black-color;
+        font-size: 16px;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    & select{
+        background-color: transparent;
+        text-align: center;
+        padding: 14px 10px;
+        border-radius: 10px;
+        border: solid $black-color 2px;
+        box-shadow: 2px 2px $black-color;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+
+    & .fieldset__input{
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+    }
+
+    & .div__label-input{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+
+
+@mixin page(){
+    padding: 46px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    background-color: #FEFEFD;
+
+    & .page__header{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        & h1{
+            font-size: 46px;
+            font-weight: 500;
+            font-family: $title-font;
+            line-height: 1;
+            text-transform: capitalize;
+        }
+
+        & p {
+            font-size: 20px;
+            font-weight: 400;
+      
+            & .__styled {
+              font-weight: 600;
+              text-decoration: underline;
+            }
+        }
+    }
+}
+
+
 @mixin button(){
     padding: 21px 10px;
     width: 100%;

@@ -1,0 +1,64 @@
+.component__alert {
+  display: flex;
+  padding: 18px 16px;
+  width: fit-content;
+  align-self: flex-end;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateX(0%);
+  animation: fadeIn 0.5s forwards;
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.6);
+      margin-right: 10px;
+      border-radius: 10px;
+    }
+  }
+
+  &.__success {
+    background-color: $green-color;
+    color: $white-color;
+
+    p:before {
+      content: url(/icon/success.svg);
+    }
+  }
+
+  &.__error {
+    background-color: $red-color;
+    color: $white-color;
+
+    p:before {
+      content: url(/icon/error.svg);
+    }
+  }
+
+  &.__info {
+    background-color: $yellow-color;
+    color: $black-color;
+
+    p:before {
+      background-color: rgba(20, 20, 20, 0.6);
+      content: url(/icon/info.svg);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

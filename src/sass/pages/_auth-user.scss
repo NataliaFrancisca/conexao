@@ -1,0 +1,78 @@
+.page__auth-user{
+    @include page();   
+
+    & .section__wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+    }
+
+    & form{
+        @include form();
+
+        & .link__forget-password{
+            font-size: 16px;
+            text-decoration: none;
+            color: $black-color;
+            align-self: flex-end;
+            margin-top: 18px;
+
+            &:hover {
+                font-weight: 500;
+                transition: all ease-in-out 0.4s;
+            }
+        }
+
+        & .div__group-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+            margin: 43px 0;
+        }
+    
+        & .link__form-nav{
+            text-align: center;
+            font-size: 16px;
+    
+            & a {
+                color: $black-color;
+                text-decoration: none;
+                font-weight: 500;
+          
+                &:hover {
+                  font-weight: 600;
+                  transition: all ease-in-out 0.4s;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        background-image: url(/images/background-pattern-green.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+    
+        & .section__wrapper{
+            width: 90%;
+            background-color: white;
+            flex-direction: row;
+            margin: auto;
+            border-radius: 60px;
+            border: solid $black-color 4px;
+            padding: 60px 80px;
+        }
+    
+        form {
+            width: 60%;
+
+            & .div__group-buttons {
+                flex-direction: row;
+            
+                & button {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

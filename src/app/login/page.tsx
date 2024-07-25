@@ -1,7 +1,23 @@
 'use client';
+import { ChangeEvent } from 'react';
+import { EAuthFormOption } from '@/utils/ts/enums';
+import { useAuthenticateUser } from '@/hooks/useAuthenticateUser';
 import Image from 'next/image';
+import Alert from '@/components/Alert/Alert';
+import Loader from '@/components/Loader/Loader';
+import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
+import LabeledInput from '@/components/LabeledInput/LabeledInput';
 
 const Page = () => {
+  const {
+    errors,
+    loading,
+    alertMessage,
+    formInputValues,
+    onSubmit,
+    setFormInputValues,
+  } = useAuthenticateUser(EAuthFormOption.LOGIN);
+
   return (
     <main className="page__auth-user">
       <section className="section__wrapper">
@@ -13,27 +29,43 @@ const Page = () => {
           </p>
         </header>
 
-        <form>
-          <fieldset className="fieldset__input">
-            <div className="div__label-input">
-              <label htmlFor="input-login-email">Email:</label>
-              <input
-                required
-                type="email"
-                id="input-login-email"
-                placeholder="Digite seu email"
-              />
-            </div>
+        {loading && <Loader />}
 
-            <div className="div__label-input">
-              <label htmlFor="input-login-password">Senha:</label>
-              <input
-                required
-                type="password"
-                id="input-login-password"
-                placeholder="Digite sua senha"
-              />
-            </div>
+        {alertMessage && (
+          <Alert message={alertMessage.message} status={alertMessage.status} />
+        )}
+
+        {errors && errors.length > 0 && <ErrorMessage errors={errors} />}
+
+        <form onSubmit={async (e) => await onSubmit(e, false)}>
+          <fieldset className="fieldset__input">
+            <LabeledInput
+              label="Email:"
+              input={{
+                id: 'input-login-email',
+                placeholder: 'Digite seu email',
+                type: 'email',
+                onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                  setFormInputValues({
+                    ...formInputValues,
+                    email: e.target.value,
+                  }),
+              }}
+            />
+
+            <LabeledInput
+              label="Senha:"
+              input={{
+                id: 'input-login-password',
+                placeholder: 'Digite sua senha',
+                type: 'password',
+                onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                  setFormInputValues({
+                    ...formInputValues,
+                    password: e.target.value,
+                  }),
+              }}
+            />
           </fieldset>
 
           <a href="/" className="link__forget-password">
@@ -51,7 +83,10 @@ const Page = () => {
               Login com Email
             </button>
 
-            <button className="btn__with-image btn__bg-google">
+            <button
+              className="btn__with-image btn__bg-google"
+              onClick={async (e) => await onSubmit(e, true)}
+            >
               <Image
                 src="icon/google.svg"
                 width={17.6}

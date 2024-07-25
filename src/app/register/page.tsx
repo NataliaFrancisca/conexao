@@ -1,7 +1,23 @@
 'use client';
+import { ChangeEvent } from 'react';
+import { EAuthFormOption } from '@/utils/ts/enums';
+import { useAuthenticateUser } from '@/hooks/useAuthenticateUser';
 import Image from 'next/image';
+import Alert from '@/components/Alert/Alert';
+import Loader from '@/components/Loader/Loader';
+import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
+import LabeledInput from '@/components/LabeledInput/LabeledInput';
 
 const Page = () => {
+  const {
+    errors,
+    loading,
+    alertMessage,
+    formInputValues,
+    onSubmit,
+    setFormInputValues,
+  } = useAuthenticateUser(EAuthFormOption.REGISTER);
+
   return (
     <main className="page__auth-user">
       <section className="section__wrapper">
@@ -13,37 +29,57 @@ const Page = () => {
           </p>
         </header>
 
-        <form>
+        {loading && <Loader />}
+
+        {alertMessage && (
+          <Alert message={alertMessage.message} status={alertMessage.status} />
+        )}
+
+        {errors && errors.length > 0 && <ErrorMessage errors={errors} />}
+
+        <form onSubmit={async (e) => await onSubmit(e, false)}>
           <fieldset className="fieldset__input">
-            <div className="div__label-input">
-              <label htmlFor="input-register-name">Nome:</label>
-              <input
-                required
-                type="text"
-                id="input-register-name"
-                placeholder="Digite seu nome"
-              />
-            </div>
+            <LabeledInput
+              label="Nome:"
+              input={{
+                id: 'input-register-name',
+                placeholder: 'Digite seu nome',
+                type: 'text',
+                onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                  setFormInputValues({
+                    ...formInputValues,
+                    name: e.target.value,
+                  }),
+              }}
+            />
 
-            <div className="div__label-input">
-              <label htmlFor="input-register-email">Email:</label>
-              <input
-                required
-                type="email"
-                id="input-register-email"
-                placeholder="Digite seu email"
-              />
-            </div>
+            <LabeledInput
+              label="Email:"
+              input={{
+                id: 'input-login-email',
+                placeholder: 'Digite seu email',
+                type: 'email',
+                onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                  setFormInputValues({
+                    ...formInputValues,
+                    email: e.target.value,
+                  }),
+              }}
+            />
 
-            <div className="div__label-input">
-              <label htmlFor="input-register-password">Senha:</label>
-              <input
-                required
-                type="password"
-                id="input-register-password"
-                placeholder="Digite sua senha"
-              />
-            </div>
+            <LabeledInput
+              label="Senha:"
+              input={{
+                id: 'input-login-password',
+                placeholder: 'Digite sua senha',
+                type: 'password',
+                onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                  setFormInputValues({
+                    ...formInputValues,
+                    password: e.target.value,
+                  }),
+              }}
+            />
           </fieldset>
 
           <div className="div__group-buttons">
@@ -57,7 +93,10 @@ const Page = () => {
               Criar com Email
             </button>
 
-            <button className="btn__with-image btn__bg-google">
+            <button
+              className="btn__with-image btn__bg-google"
+              onClick={async (e) => await onSubmit(e, true)}
+            >
               <Image
                 src="icon/google.svg"
                 width={17.6}

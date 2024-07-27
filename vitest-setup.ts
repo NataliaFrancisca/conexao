@@ -1,8 +1,16 @@
 import { beforeAll, vi } from 'vitest';
 import '@testing-library/jest-dom';
+import 'next-router-mock/dynamic-routes';
 
 beforeAll(() => {
-  vi.mock('', () => {});
+  vi.mock('firebase/auth', () => {
+    return {
+      auth: vi.fn(),
+      getAuth: vi.fn(),
+    };
+  });
+
+  vi.mock('next/router', () => require('next-router-mock'));
 
   vi.mock('next/navigation', () => {
     // eslint-disable-next-line @typescript-eslint/no-var-requires

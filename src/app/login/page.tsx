@@ -7,6 +7,7 @@ import Alert from '@/components/Alert/Alert';
 import Loader from '@/components/Loader/Loader';
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
 import LabeledInput from '@/components/LabeledInput/LabeledInput';
+import Link from 'next/link';
 
 const Page = () => {
   const {
@@ -98,7 +99,8 @@ const Page = () => {
           </div>
 
           <span className="link__form-nav">
-            Novo aqui? <a href="/register">Criar Conta</a>
+            Novo aqui?
+            <Link href="/register">Criar Conta</Link>
           </span>
         </form>
       </section>

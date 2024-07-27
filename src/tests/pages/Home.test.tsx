@@ -10,7 +10,7 @@ beforeEach(() => {
 
 describe('Page: Home', () => {
   test('Should render page title and subtitle', () => {
-    expect(screen.getByText('CONEXÃO BRASIL')).toBeInTheDocument();
+    expect(screen.getByText('CONEXÃO')).toBeInTheDocument();
     expect(
       screen.getByText('Seu dicionário pessoal, simples e eficaz.'),
     ).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe('Page: Home', () => {
   test('Should render an illustration', () => {
     expect(
       screen.getByRole('img', {
-        name: 'ilustração de uma mulher usando fones de ouvido e mexendo no notebook que está sobre suas pernas',
+        name: 'ilustração de uma pessoa sentada em uma cadeira, com um pé apoiado em um tijolo. Essa pessoa está usando um telefone',
       }),
     ).toBeInTheDocument();
   });

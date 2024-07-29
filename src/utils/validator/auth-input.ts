@@ -52,10 +52,10 @@ export class AuthInputValidator {
       case 'auth/wrong-password':
         this.errors.password = 'A senha que você digitou está incorreta';
         break;
-      // case 'auth/signIn-success' || 'auth/signUp-success':
-      //   this.errors.email = null;
-      //   this.errors.password = null;
-      //   break;
+      case 'auth/signIn-success':
+        this.errors.email = null;
+        this.errors.password = null;
+        break;
       default:
         this.errors.email =
           'Estamos com problema para realizar autenticação no momento, tente novamente mais tarde';

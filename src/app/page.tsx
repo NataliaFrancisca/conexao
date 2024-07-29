@@ -7,15 +7,17 @@ export default function Home() {
 
   return (
     <main className="page__home">
-      <h1>CONEXÃO</h1>
-      <p>Seu dicionário pessoal, simples e eficaz.</p>
+      <header>
+        <h1>CONEXÃO</h1>
+        <p>Seu dicionário pessoal, simples e eficaz.</p>
+      </header>
 
       <Image
         className="image__illustration"
         src="images/illustration.svg"
         alt="ilustração de uma pessoa sentada em uma cadeira, com um pé apoiado em um tijolo. Essa pessoa está usando um telefone"
-        width={314}
-        height={349}
+        width={295}
+        height={356}
       />
 
       <button

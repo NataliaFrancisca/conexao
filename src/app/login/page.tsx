@@ -100,7 +100,7 @@ const Page = () => {
 
           <span className="link__form-nav">
             Novo aqui?
-            <Link href="/register">Criar Conta</Link>
+            <Link href="/register"> Criar Conta</Link>
           </span>
         </form>
       </section>

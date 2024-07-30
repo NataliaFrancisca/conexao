@@ -16,8 +16,8 @@ export default function Home() {
         className="image__illustration"
         src="images/illustration.svg"
         alt="ilustração de uma pessoa sentada em uma cadeira, com um pé apoiado em um tijolo. Essa pessoa está usando um telefone"
-        width={295}
-        height={356}
+        width={329}
+        height={390}
       />
 
       <button

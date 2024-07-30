@@ -1,0 +1,61 @@
+.container__lists{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    justify-content: space-between;
+
+    @media screen and (min-width: 380px) {
+     grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.container__list{
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    height: 139.06px;
+    justify-content: space-between;
+    padding: 18px 14px;
+    transition: all ease-in-out 0.4s;
+    width: 100%;
+
+    h1 {
+        font-family: $title-font;
+        font-weight: 500;
+        font-size: 18px;
+        // text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    @for $i from 1 through 4 {
+        &:hover {
+            transition: all ease-in-out 0.4s;
+        }
+
+        &:nth-child(4n + #{$i}) {
+            background-color: BG_FOR_INDEX($i - 1);
+            box-shadow: 4px 4px BOX_COLOR_FOR_INDEX($i - 1);
+
+            &:hover {
+                box-shadow: 10px 10px BOX_COLOR_FOR_INDEX($i - 1);
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        height: 200px;
+
+        h1 {
+            font-size: 20px;
+        }
+    }
+}

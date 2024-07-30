@@ -3,7 +3,7 @@ import { beforeEach, describe, test, expect } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import Page from '@/app/login/page';
+import Page from '@/app/(pages)/login/page';
 beforeEach(() => {
   render(<Page />, { wrapper: MemoryRouterProvider });
 });

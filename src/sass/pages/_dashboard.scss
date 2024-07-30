@@ -1,0 +1,8 @@
+.page__dashboard{
+    @include page();
+    gap: 42px;
+    
+    & button{
+        margin-top: auto;
+    }
+}

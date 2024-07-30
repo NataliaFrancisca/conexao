@@ -10,11 +10,12 @@ import {
   updateProfile,
   User,
 } from 'firebase/auth';
-import { auth } from '../config';
+
 import { IAuthFormInputValues } from '@/utils/ts/interface';
 import { GET_HTTP_ERROR_STATUS } from '@/utils/constants/http-error';
+import { auth } from '@/lib/firebase/config';
 
-export class FirebaseAuth {
+export class authService {
   private async __signInPersistence() {
     try {
       return await setPersistence(auth, browserLocalPersistence);

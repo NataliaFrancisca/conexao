@@ -1,0 +1,16 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = false;
+
+export const useToggleLoader = createSlice({
+  name: 'use-toggle-dialog',
+  initialState,
+  reducers: {
+    toggleLoader: (state, action) => {
+      return action.payload;
+    },
+  },
+});
+
+export const { toggleLoader } = useToggleLoader.actions;
+export default useToggleLoader.reducer;

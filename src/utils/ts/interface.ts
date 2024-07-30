@@ -1,5 +1,22 @@
 import { EAuthFormOption } from './enums';
 
+export interface IList {
+  id: string;
+  title: string;
+  words: Array<IWord>;
+}
+
+export interface IWord {
+  id: string;
+  original: string;
+  translated: string;
+  meaning: string;
+  examples: {
+    phraseInput: string;
+    phraseOutput: string;
+  };
+}
+
 export interface IAuthFormInputValues {
   name: string;
   email: string;

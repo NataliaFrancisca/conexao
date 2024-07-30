@@ -1,4 +1,4 @@
-import { UserAuthController } from '@/controller/UserAuthController';
+import { UserAuthController } from '@/controllers/UserAuthController';
 import { IUseHandleAuthFormErrors } from '@/utils/ts/interface';
 import { AuthFormValidator } from '@/utils/validator/auth-form';
 

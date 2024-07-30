@@ -1,9 +1,9 @@
-import { FirebaseAuth } from '@/lib/firebase/auth/auth';
+import { authService } from '@/service/auth/authService';
 import { EAuthFormOption } from '@/utils/ts/enums';
 import { IAuthFormInputValues } from '@/utils/ts/interface';
 
 export class UserAuthController {
-  private firebaseAuth = new FirebaseAuth();
+  private authService = new authService();
   private inputValues: IAuthFormInputValues;
   private authOption: EAuthFormOption;
 
@@ -13,15 +13,15 @@ export class UserAuthController {
   }
 
   private __onSubmitAuthLogin = async () => {
-    return await this.firebaseAuth.signIn(this.inputValues);
+    return await this.authService.signIn(this.inputValues);
   };
 
   private __onSubmitAuthRegister = async () => {
-    return await this.firebaseAuth.signUp(this.inputValues);
+    return await this.authService.signUp(this.inputValues);
   };
 
   private __onSubmitAuthUsingGoogle = async () => {
-    return await this.firebaseAuth.signInWithGoogle();
+    return await this.authService.signInWithGoogle();
   };
 
   onSubmitUserAuth = async (withGoogle: boolean) => {

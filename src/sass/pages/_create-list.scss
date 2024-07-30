@@ -1,0 +1,13 @@
+.page__create-list{
+    @include page;
+    gap: 42px;
+
+    form {
+        @include form;
+        gap: 24px;
+    }
+
+    .component__loader{
+        margin: 0 auto;
+    }
+}

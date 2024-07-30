@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../sass/main.scss';
+import StoreProvider from '@/lib/redux/provider';
 
 export const metadata: Metadata = {
   title: 'Conexão Brasil',
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body>{children}</body>
+      <body>
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
   );
 }

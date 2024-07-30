@@ -1,0 +1,28 @@
+@function BG_FOR_INDEX($index) {
+    @if $index == 1 {
+      @return $list-yellow-color;
+    } 
+    @else if $index == 2 {
+      @return $list-green-color;
+    }  
+    @else if $index == 3{
+        @return $list-pink-color;
+    }@else {
+      @return $list-purple-color;
+    }
+}
+  
+@function BOX_COLOR_FOR_INDEX($index) {
+    @if $index == 1 {
+      @return $list-shadow-yellow-color;
+    } 
+    @else if $index == 2 {
+      @return $list-shadow-green-color;
+    }  
+    @else if $index == 3{
+        @return $list-shadow-pink-color;
+    }@else {
+      @return $list-shadow-purple-color;
+    }
+}
+  

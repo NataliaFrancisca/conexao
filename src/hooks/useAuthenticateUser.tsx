@@ -1,7 +1,7 @@
 import { EAuthFormOption } from '@/utils/ts/enums';
 import { IAlertMessage } from '@/utils/ts/interface';
 import { FormEvent, useState } from 'react';
-import { handleAuthForm } from '@/handler/auth-form/auth-form';
+import { handleAuthForm } from '@/handler/auth-form';
 import { useRouter } from 'next/navigation';
 
 export const useAuthenticateUser = (authOption: EAuthFormOption) => {

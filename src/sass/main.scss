@@ -7,9 +7,15 @@
 // PAGES
 @import 'pages/home';
 @import 'pages/auth-user';
-
+@import 'pages/dashboard';
+@import 'pages/list';
+@import 'pages/create-list';
 
 // COMPONENTES
 @import 'components/alert-message';
 @import 'components/error-message';
-@import 'components/loader'
+@import 'components/loader';
+@import 'components/dialog';
+
+// .container__lists
+@import 'containers/lists';

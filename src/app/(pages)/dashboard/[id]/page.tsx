@@ -3,10 +3,17 @@ import Loader from '@/components/Loader/Loader';
 import Alert from '@/components/Alert/Alert';
 import Dialog from '@/components/Dialog/Dialog';
 import { useListLogic } from './useListLogic';
+import Words from '@/components/Words/Words';
+import { handleDrop, allowDrop } from '@/handler/drag-and-drop';
+import { useDialogHandler } from '@/hooks/useDialogHandler';
+import { useRouter } from 'next/navigation';
 
 const Page = ({ params }: { params: { id: string } }) => {
-  const { dialogState, listData, alertMessage, deleteList, openDialog } =
-    useListLogic(params.id);
+  const router = useRouter();
+  const { dialogState, openDialog } = useDialogHandler();
+  const { listData, alertMessage, deleteList, sendListUpdated } = useListLogic(
+    params.id,
+  );
 
   if (listData === null && alertMessage?.status === false) {
     return (
@@ -27,13 +34,19 @@ const Page = ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <main className="page__list">
+    <main
+      className="page__list"
+      onDrop={(e) => handleDrop(e, sendListUpdated)}
+      onDragOver={allowDrop}
+    >
       <header className="page__header">
         <h1>
           Lista:
           {listData.title}
         </h1>
       </header>
+
+      {listData.words.length > 0 && <Words data={listData.words} />}
 
       {alertMessage && (
         <Alert message={alertMessage.message} status={alertMessage.status} />
@@ -50,10 +63,14 @@ const Page = ({ params }: { params: { id: string } }) => {
       )}
 
       <section className="section__buttons">
-        <button>Estudar</button>
-        <button className="btn__bg-green">Adicionar Palavra</button>
+        <button>ESTUDAR</button>
+        <button
+          onClick={() => router.push(`/dashboard/${params.id}/search-word`)}
+        >
+          PESQUISAR PALAVRA
+        </button>
         <button className="btn__bg-red" onClick={() => openDialog()}>
-          Deletar Lista
+          DELETAR LISTA
         </button>
       </section>
     </main>

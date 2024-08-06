@@ -1,28 +1,11 @@
+$LIST-BG-COLORS: #F25EBF, #736eff, #77D990;
+$LIST-BOX-SHADOW: #D22D8C, #4a3ecf, #4db579;
+
 @function BG_FOR_INDEX($index) {
-    @if $index == 1 {
-      @return $list-yellow-color;
-    } 
-    @else if $index == 2 {
-      @return $list-green-color;
-    }  
-    @else if $index == 3{
-        @return $list-pink-color;
-    }@else {
-      @return $list-purple-color;
-    }
+  @return nth($LIST-BG-COLORS, $index);
 }
   
 @function BOX_COLOR_FOR_INDEX($index) {
-    @if $index == 1 {
-      @return $list-shadow-yellow-color;
-    } 
-    @else if $index == 2 {
-      @return $list-shadow-green-color;
-    }  
-    @else if $index == 3{
-        @return $list-shadow-pink-color;
-    }@else {
-      @return $list-shadow-purple-color;
-    }
+   @return nth($LIST-BOX-SHADOW, $index);
 }
   

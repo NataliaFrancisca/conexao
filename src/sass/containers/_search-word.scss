@@ -1,0 +1,13 @@
+.container__search-word{
+    @include form();
+    gap: 38px;
+
+
+    & fieldset legend{
+        margin-bottom: 8px;
+    }
+
+    & fieldset select{
+        width: 100%;
+    }
+}

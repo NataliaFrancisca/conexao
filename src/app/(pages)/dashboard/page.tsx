@@ -28,8 +28,8 @@ const Page = () => {
 
       <Lists />
 
-      <button onClick={() => router.push('/dashboard/create-list')}>
-        Criar Lista
+      <button onClick={() => router.push(`/dashboard/create-list`)}>
+        CRIAR LISTA
       </button>
     </main>
   );

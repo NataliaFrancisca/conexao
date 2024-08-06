@@ -6,8 +6,8 @@ import { GET_HTTP_ERROR_STATUS } from '@/utils/constants/http-error';
 
 export class ListsService {
   user = auth.currentUser;
-  LISTS_COLLECTION_NAME = 'lists';
-  DATABASE_NAME = 'users';
+  private readonly LISTS_COLLECTION_NAME = 'lists';
+  private readonly DATABASE_NAME = 'users';
 
   constructor() {
     this.user = auth.currentUser;

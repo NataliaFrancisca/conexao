@@ -1,9 +1,6 @@
-// import { getUserLanguageLastPreference } from '@/lib/nookies/nookies';
 import { createSlice } from '@reduxjs/toolkit';
 
-const DEFAULT_OUTPUT = 'Português';
-// const USER_PREFERENCE = getUserLanguageLastPreference();
-const initialState = DEFAULT_OUTPUT;
+const initialState = '';
 
 export const useLanguageSelect = createSlice({
   name: 'use-language-select',

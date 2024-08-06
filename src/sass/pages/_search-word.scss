@@ -1,0 +1,8 @@
+.page__search-word{
+    @include page();
+    gap: 42px;
+
+    .component__loader{
+        margin: 20px auto;
+    }
+}

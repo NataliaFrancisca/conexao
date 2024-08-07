@@ -1,0 +1,18 @@
+export const LIST_LANGUAGES = [
+  'Alemão',
+  'Árabe',
+  'Coreano',
+  'Espanhol',
+  'Francês',
+  'Hindi',
+  'Igbo',
+  'Inglês',
+  'Iorubá',
+  'Italiano',
+  'Japonês',
+  'Mandarim',
+  'Polonês',
+  'Português',
+  'Xhosa',
+  'Zulu',
+];

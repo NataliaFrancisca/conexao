@@ -1,23 +1,27 @@
-import { ListController } from '@/controllers/ListController';
-import { useDialogHandler } from '@/hooks/useDialogHandler';
-import { useSession } from '@/hooks/useSession';
-import { IAlertMessage, IList } from '@/utils/ts/interface';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useSession } from '@/hooks/useSession';
+import { ListController } from '@/controllers/ListController';
+import { WordController } from '@/controllers/WordController';
+import { IAlertMessage, IList } from '@/utils/ts/interface';
 
-export const useListLogic = (id: string) => {
+export const useListLogic = (listId: string) => {
   const router = useRouter();
-
   const { user } = useSession();
-  const { dialogState, openDialog } = useDialogHandler();
 
   const controller = new ListController();
 
   const [listData, setListData] = useState<IList | null>(null);
   const [alertMessage, setAlertMessage] = useState<null | IAlertMessage>(null);
 
+  useEffect(() => {
+    if (user) {
+      getList();
+    }
+  }, [user]);
+
   const getList = async () => {
-    const response = await controller.fetchList(id);
+    const response = await controller.fetchList(listId);
 
     if (!response.requestWasSuccess) {
       setAlertMessage({
@@ -32,7 +36,7 @@ export const useListLogic = (id: string) => {
   };
 
   const deleteList = async () => {
-    const response = await controller.deleteList(id);
+    const response = await controller.deleteList(listId);
 
     setAlertMessage({
       message: response.message,
@@ -46,17 +50,46 @@ export const useListLogic = (id: string) => {
     }
   };
 
-  useEffect(() => {
-    if (user) {
-      getList();
+  const updateListState = (list: IList, wordId: string) => {
+    const updated = list.words.filter((word) => word.id !== wordId);
+
+    setListData({
+      ...list,
+      words: updated,
+    });
+
+    if (list.words.length === 0) {
+      setAlertMessage({
+        message: 'Nenhuma palavra foi salva nessa lista.',
+        status: undefined,
+      });
     }
-  }, [user]);
+  };
+
+  const sendListUpdated = async (wordId: string) => {
+    const controller = new WordController();
+
+    if (listData) {
+      updateListState(listData, wordId);
+
+      const response = await controller.removeWord(
+        { ...listData, id: listId },
+        wordId,
+      );
+
+      if (!response.requestWasSuccess) {
+        setAlertMessage({
+          message: response.message,
+          status: response.requestWasSuccess,
+        });
+      }
+    }
+  };
 
   return {
-    dialogState,
     listData,
     alertMessage,
-    openDialog,
     deleteList,
+    sendListUpdated,
   };
 };

@@ -1,5 +1,10 @@
 import { EAuthFormOption } from './enums';
 
+export interface ICardWordSelectProps {
+  wordData: IWord;
+  toggleWordSelect: (word: IWord) => void;
+}
+
 export interface IList {
   id: string;
   title: string;

@@ -10,12 +10,16 @@
 @import 'pages/dashboard';
 @import 'pages/list';
 @import 'pages/create-list';
+@import 'pages/search-word';
 
 // COMPONENTES
 @import 'components/alert-message';
 @import 'components/error-message';
 @import 'components/loader';
 @import 'components/dialog';
+@import 'components/word';
 
-// .container__lists
+// CONTAINERS
 @import 'containers/lists';
+@import 'containers/words';
+@import 'containers/search-word';

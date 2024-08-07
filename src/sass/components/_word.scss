@@ -1,0 +1,65 @@
+.component__word{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 24px;
+    gap: 32px;
+    background-color: #fff18c;
+    box-shadow: 4px 4px #beb150;
+
+    &.__dragging{
+        opacity: 0.5;
+        border: 2px dashed $red-color;
+        background-color: $red-color;
+        box-shadow: 4px 4px #9d1d00;
+    }
+
+    & h1{
+        font-size: 24px;
+        font-weight: 800;
+        text-transform: capitalize;
+        word-wrap: break-word;
+    }
+
+    & label{
+        font-size: 16px;
+        font-weight: 800;
+
+        & q {
+        font-weight: 400;
+        padding-left: 10px;
+        }
+    }
+
+    & ul {
+        display: flex;
+        flex-direction: column;
+        list-style-position: inside;
+        list-style: none;
+        font-weight: 400;
+        gap: 8px;
+
+        & li b {
+            font-weight: 800;
+            font-style: normal;
+            padding-right: 10px;
+        }
+    }
+}
+
+
+.component__word .__select{
+    &_input-select {
+        display: flex;
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        align-self: flex-start;
+        justify-self: flex-end;
+    
+        &:checked {
+          accent-color: $yellow-color;
+        }
+    }
+}

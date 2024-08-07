@@ -36,17 +36,17 @@
         text-transform: uppercase;
     }
 
-    @for $i from 1 through 4 {
+    @for $i from 1 through 3 {
         &:hover {
             transition: all ease-in-out 0.4s;
         }
 
-        &:nth-child(4n + #{$i}) {
-            background-color: BG_FOR_INDEX($i - 1);
-            box-shadow: 4px 4px BOX_COLOR_FOR_INDEX($i - 1);
+        &:nth-child(3n + #{$i}) {
+            background-color: BG_FOR_INDEX($i);
+            box-shadow: 4px 4px BOX_COLOR_FOR_INDEX($i);
 
             &:hover {
-                box-shadow: 10px 10px BOX_COLOR_FOR_INDEX($i - 1);
+                box-shadow: 10px 10px BOX_COLOR_FOR_INDEX($i);
             }
         }
     }

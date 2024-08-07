@@ -2,11 +2,11 @@
 import Loader from '@/components/Loader/Loader';
 import Alert from '@/components/Alert/Alert';
 import Dialog from '@/components/Dialog/Dialog';
-import { useListLogic } from './useListLogic';
 import Words from '@/components/Words/Words';
 import { handleDrop, allowDrop } from '@/handler/drag-and-drop';
 import { useDialogHandler } from '@/hooks/useDialogHandler';
 import { useRouter } from 'next/navigation';
+import { useListLogic } from '@/hooks/useListLogic';
 
 const Page = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
@@ -63,7 +63,9 @@ const Page = ({ params }: { params: { id: string } }) => {
       )}
 
       <section className="section__buttons">
-        <button>ESTUDAR</button>
+        <button onClick={() => router.push(`/dashboard/${params.id}/study`)}>
+          ESTUDAR
+        </button>
         <button
           onClick={() => router.push(`/dashboard/${params.id}/search-word`)}
         >

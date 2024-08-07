@@ -1,0 +1,21 @@
+.page__study{
+    @include page();
+    gap: 42px;
+
+    &-status{
+        display: flex;
+        padding: 8px 24px;
+        border-radius: 4px;
+        width: max-content;
+        background-color: rgba(0, 121, 255, 44%);
+        font-size: 14px;
+        font-weight: 800;
+        align-self: flex-end;
+    }
+
+    & .section__buttons{
+        display: flex;
+        gap: 20px;
+        margin-top: auto;
+    }
+}

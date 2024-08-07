@@ -11,6 +11,7 @@
 @import 'pages/list';
 @import 'pages/create-list';
 @import 'pages/search-word';
+@import 'pages/study';
 
 // COMPONENTES
 @import 'components/alert-message';
@@ -18,6 +19,7 @@
 @import 'components/loader';
 @import 'components/dialog';
 @import 'components/word';
+@import 'components/word-flip';
 
 // CONTAINERS
 @import 'containers/lists';

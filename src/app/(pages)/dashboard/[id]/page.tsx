@@ -4,16 +4,18 @@ import Alert from '@/components/Alert/Alert';
 import Dialog from '@/components/Dialog/Dialog';
 import Words from '@/components/Words/Words';
 import { handleDrop, allowDrop } from '@/handler/drag-and-drop';
-import { useDialogHandler } from '@/hooks/useDialogHandler';
-import { useRouter } from 'next/navigation';
-import { useListLogic } from '@/hooks/useListLogic';
+import { usePageLogic } from './usePageLogic';
 
 const Page = ({ params }: { params: { id: string } }) => {
-  const router = useRouter();
-  const { dialogState, openDialog } = useDialogHandler();
-  const { listData, alertMessage, deleteList, sendListUpdated } = useListLogic(
-    params.id,
-  );
+  const {
+    alertMessage,
+    listData,
+    dialogState,
+    sendListUpdated,
+    deleteList,
+    openDialog,
+    navigateDashboardSubPages,
+  } = usePageLogic(params.id);
 
   if (listData === null && alertMessage?.status === false) {
     return (
@@ -63,12 +65,13 @@ const Page = ({ params }: { params: { id: string } }) => {
       )}
 
       <section className="section__buttons">
-        <button onClick={() => router.push(`/dashboard/${params.id}/study`)}>
-          ESTUDAR
-        </button>
-        <button
-          onClick={() => router.push(`/dashboard/${params.id}/search-word`)}
-        >
+        {listData.words.length > 0 && (
+          <button onClick={() => navigateDashboardSubPages('study')}>
+            ESTUDAR
+          </button>
+        )}
+
+        <button onClick={() => navigateDashboardSubPages('search-word')}>
           PESQUISAR PALAVRA
         </button>
         <button className="btn__bg-red" onClick={() => openDialog()}>

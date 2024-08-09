@@ -6,7 +6,7 @@ export const useToggleLoader = createSlice({
   name: 'use-toggle-dialog',
   initialState,
   reducers: {
-    toggleLoader: (state, action) => {
+    toggleLoader: (_, action) => {
       return action.payload;
     },
   },

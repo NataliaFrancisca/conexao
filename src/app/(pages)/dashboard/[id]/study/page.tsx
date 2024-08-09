@@ -4,9 +4,9 @@ import Loader from '@/components/Loader/Loader';
 import WordFlip from '@/components/WordFlip/WordFlip';
 
 const Page = () => {
-  const { currentList, randomList, updateCurrentList } = usePageLogic();
+  const { currentWord, randomWordList, updateCurrentWord } = usePageLogic();
 
-  if (!randomList) {
+  if (!randomWordList) {
     return (
       <main className="page__study">
         <Loader />
@@ -20,22 +20,22 @@ const Page = () => {
         <h1>Estudar:</h1>
       </header>
 
-      <span className="page__study-status">
-        {currentList + 1}/{randomList.length}
+      <span className="study-status">
+        {currentWord + 1}/{randomWordList.length}
       </span>
 
-      <WordFlip data={randomList[currentList]} key={currentList} />
+      <WordFlip data={randomWordList[currentWord]} key={currentWord} />
 
-      <section className="section__buttons">
+      <section className="section__button">
         <button
-          onClick={() => updateCurrentList.decrement()}
-          disabled={currentList === 0}
+          onClick={() => updateCurrentWord.decrement()}
+          disabled={currentWord === 0}
         >
           VOLTAR
         </button>
         <button
-          onClick={() => updateCurrentList.increment()}
-          disabled={currentList === randomList.length - 1}
+          onClick={() => updateCurrentWord.increment()}
+          disabled={currentWord === randomWordList.length - 1}
         >
           PRÓXIMO
         </button>

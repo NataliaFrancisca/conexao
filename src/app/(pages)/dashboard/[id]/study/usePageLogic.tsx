@@ -1,28 +1,29 @@
-import { useListLogic } from '@/hooks/useListLogic';
-import { IWord } from '@/utils/ts/interface';
-import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { IWord } from '@/utils/ts/interface';
+import { useListLogic } from '@/hooks/useListLogic';
 
 export const usePageLogic = () => {
   const params = useParams() as { id: string };
+
   const { listData } = useListLogic(params.id);
 
-  const [randomList, setRandomList] = useState<IWord[] | null>(null);
-  const [currentList, setCurrentList] = useState(0);
+  const [randomWordList, setRandomWordList] = useState<IWord[] | null>(null);
+  const [currentWord, setCurrentWord] = useState(0);
 
-  const updateCurrentList = {
+  const updateCurrentWord = {
     increment() {
-      if (randomList) {
-        if (currentList < randomList.length - 1) {
-          setCurrentList((prev) => prev + 1);
+      if (randomWordList) {
+        if (currentWord < randomWordList.length - 1) {
+          setCurrentWord((prev) => prev + 1);
         }
       }
     },
 
     decrement() {
-      if (randomList) {
-        if (currentList > 0) {
-          setCurrentList((prev) => prev - 1);
+      if (randomWordList) {
+        if (currentWord > 0) {
+          setCurrentWord((prev) => prev - 1);
         }
       }
     },
@@ -33,14 +34,14 @@ export const usePageLogic = () => {
       const arr = [...listData.words];
 
       for (let i = arr.length; i; i--) {
-        const indiceAleatorio = Math.floor(Math.random() * i);
+        const randomIndex = Math.floor(Math.random() * i);
         const element = arr[i - 1];
 
-        arr[i - 1] = arr[indiceAleatorio];
-        arr[indiceAleatorio] = element;
+        arr[i - 1] = arr[randomIndex];
+        arr[randomIndex] = element;
       }
 
-      setRandomList(arr);
+      setRandomWordList(arr);
     }
   };
 
@@ -48,5 +49,5 @@ export const usePageLogic = () => {
     shuffleList();
   }, [listData]);
 
-  return { currentList, randomList, updateCurrentList };
+  return { currentWord, randomWordList, updateCurrentWord };
 };

@@ -5,7 +5,7 @@ import { IWord } from '@/utils/ts/interface';
 import { useParams } from 'next/navigation';
 import { FormEvent } from 'react';
 
-export const selectLogic = () => {
+export const useContainerLogic = () => {
   const dispatch = useAppDispatch();
   const words = useAppSelector((state) => state.searchResponse.selected);
 

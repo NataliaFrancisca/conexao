@@ -3,7 +3,7 @@ import { IAlertMessage } from '@/utils/ts/interface';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 
-export const useCreateListLogic = () => {
+export const usePageLogic = () => {
   const router = useRouter();
 
   const controller = new ListController();

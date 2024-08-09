@@ -1,10 +1,10 @@
 import { LIST_LANGUAGES } from '@/utils/constants/list-languages';
-import { searchLogic } from './searchLogic';
+import { useContainerLogic } from './useContainerLogic';
 import Loader from '@/components/Loader/Loader';
 
 const SearchWord = () => {
   const { language, loading, search, setSearch, setLanguage, onSubmit } =
-    searchLogic();
+    useContainerLogic();
 
   return (
     <form

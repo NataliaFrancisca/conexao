@@ -2,7 +2,7 @@ import { ListsController } from '@/controllers/ListsController';
 import { IList } from '@/utils/ts/interface';
 import { useEffect, useState } from 'react';
 
-export const useListsLogic = () => {
+export const useContainerLogic = () => {
   const [lists, setLists] = useState<IList[]>([]);
 
   const getLists = async () => {

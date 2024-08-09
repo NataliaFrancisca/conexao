@@ -10,7 +10,7 @@ import {
   setUserLanguageLastPreference,
 } from '@/lib/nookies/nookies';
 
-export const searchLogic = () => {
+export const useContainerLogic = () => {
   const dispatch = useAppDispatch();
 
   const controller = new GeminiController();

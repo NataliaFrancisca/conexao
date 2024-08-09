@@ -1,11 +1,11 @@
 import { IWord } from '@/utils/ts/interface';
-import { selectLogic } from './selectLogic';
+import { useContainerLogic } from './useContainerLogic';
 import WordSelect from '@/components/WordSelect/WordSelect';
 import Loader from '@/components/Loader/Loader';
 import Alert from '@/components/Alert/Alert';
 
 const SelectWord = (props: { data: IWord[] }) => {
-  const { alertMessage, loading, onSubmit, toggleSelect } = selectLogic();
+  const { alertMessage, loading, onSubmit, toggleSelect } = useContainerLogic();
 
   return (
     <form

@@ -2,7 +2,7 @@
     @include page();
     gap: 42px;
 
-    &-status{
+    & .study-status{
         display: flex;
         padding: 8px 24px;
         border-radius: 4px;
@@ -13,7 +13,7 @@
         align-self: flex-end;
     }
 
-    & .section__buttons{
+    & .section__button{
         display: flex;
         gap: 20px;
         margin-top: auto;

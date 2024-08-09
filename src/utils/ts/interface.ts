@@ -45,11 +45,6 @@ export interface IDialogProps {
   onConfirm: () => void;
 }
 
-export interface IUseHandleAuthFormErrors {
-  inputValues: IAuthFormInputValues;
-  authOption: EAuthFormOption;
-}
-
 export interface IAuthFormValidatorConstructor {
   authOption: EAuthFormOption;
   inputValues: IAuthFormInputValues;

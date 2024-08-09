@@ -1,11 +1,10 @@
 'use client';
-import { useCreateListLogic } from './useCreateListLogic';
+import { usePageLogic } from './usePageLogic';
 import Alert from '@/components/Alert/Alert';
 import Loader from '@/components/Loader/Loader';
 
 const Page = () => {
-  const { loading, alertMessage, setListTitle, onSubmit } =
-    useCreateListLogic();
+  const { loading, alertMessage, setListTitle, onSubmit } = usePageLogic();
 
   return (
     <main className="page__create-list">

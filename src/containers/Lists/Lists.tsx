@@ -1,8 +1,8 @@
 import List from '../List/List';
-import { useListsLogic } from './useListsLogic';
+import { useContainerLogic } from './useContainerLogic';
 
 const Lists = () => {
-  const { lists } = useListsLogic();
+  const { lists } = useContainerLogic();
 
   return (
     <section className="container__lists">

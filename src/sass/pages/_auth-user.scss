@@ -48,11 +48,6 @@
     }
 
     @media screen and (min-width: 1200px) {
-        background-image: url(/images/background-pattern-green.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top;
-    
         & .section__wrapper{
             width: 90%;
             background-color: white;

@@ -5,9 +5,9 @@ import Loader from '@/components/Loader/Loader';
 import Lists from '@/containers/Lists/Lists';
 
 const Page = () => {
-  const { user, router, logOut } = useDashboardLogic();
+  const { loading, user, router, logOut } = useDashboardLogic();
 
-  if (user === null) {
+  if (user === null || loading) {
     return (
       <main className="page__dashboard">
         <Loader />

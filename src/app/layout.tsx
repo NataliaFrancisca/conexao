@@ -3,7 +3,7 @@ import '../sass/main.scss';
 import StoreProvider from '@/lib/redux/provider';
 
 export const metadata: Metadata = {
-  title: 'Conexão Brasil',
+  title: 'Conexão',
   description: 'Seu dicionário pessoal, simples e eficaz.',
 };
 

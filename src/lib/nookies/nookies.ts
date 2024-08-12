@@ -7,5 +7,10 @@ export const setUserLanguageLastPreference = (language: string) => {
 
 export const getUserLanguageLastPreference = () => {
   const values = parseCookies();
+
+  if (!values[USER_LANGUAGE_LAST_PREFERENCE]) {
+    return 'Português';
+  }
+
   return values[USER_LANGUAGE_LAST_PREFERENCE];
 };

@@ -1,8 +1,15 @@
+import Alert from '@/components/Alert/Alert';
 import List from '../List/List';
 import { useContainerLogic } from './useContainerLogic';
 
 const Lists = () => {
-  const { lists } = useContainerLogic();
+  const { lists, alertMessage } = useContainerLogic();
+
+  if (alertMessage) {
+    return (
+      <Alert message={alertMessage.message} status={alertMessage.status} />
+    );
+  }
 
   return (
     <section className="container__lists">

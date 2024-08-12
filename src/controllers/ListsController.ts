@@ -12,6 +12,13 @@ export class ListsController {
     const response = await this.listsService.readLists();
 
     if (response.data) {
+      if (response.data.length === 0) {
+        return {
+          message: 'Nenhuma lista foi criada.',
+          requestWasSuccess: undefined,
+        };
+      }
+
       return {
         message: response.message,
         requestWasSuccess: true,

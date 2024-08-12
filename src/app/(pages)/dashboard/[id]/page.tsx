@@ -71,8 +71,8 @@ const Page = ({ params }: { params: { id: string } }) => {
           </button>
         )}
 
-        <button onClick={() => navigateDashboardSubPages('search-word')}>
-          PESQUISAR PALAVRA
+        <button onClick={() => navigateDashboardSubPages('translate-word')}>
+          TRADUZIR PALAVRA
         </button>
         <button className="btn__bg-red" onClick={() => openDialog()}>
           DELETAR LISTA

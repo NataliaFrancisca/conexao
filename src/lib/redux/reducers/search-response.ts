@@ -8,7 +8,7 @@ interface ISearch {
 
 const initialState: ISearch = { original: [], selected: [] };
 
-export const useSearchResponse = createSlice({
+export const usetranslateResponse = createSlice({
   name: 'handle-search-response',
   initialState,
   reducers: {
@@ -32,5 +32,5 @@ export const useSearchResponse = createSlice({
   },
 });
 
-export const { setOriginal, setSelected, clean } = useSearchResponse.actions;
-export default useSearchResponse.reducer;
+export const { setOriginal, setSelected, clean } = usetranslateResponse.actions;
+export default usetranslateResponse.reducer;

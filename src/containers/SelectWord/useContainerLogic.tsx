@@ -7,7 +7,7 @@ import { FormEvent } from 'react';
 
 export const useContainerLogic = () => {
   const dispatch = useAppDispatch();
-  const words = useAppSelector((state) => state.searchResponse.selected);
+  const words = useAppSelector((state) => state.translateResponse.selected);
 
   const params = useParams() as { id: string };
 

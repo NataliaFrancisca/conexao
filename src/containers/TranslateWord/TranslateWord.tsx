@@ -2,7 +2,7 @@ import { LIST_LANGUAGES } from '@/utils/constants/list-languages';
 import { useContainerLogic } from './useContainerLogic';
 import Loader from '@/components/Loader/Loader';
 
-const SearchWord = () => {
+const TranslateWord = () => {
   const { language, loading, search, setSearch, setLanguage, onSubmit } =
     useContainerLogic();
 
@@ -45,11 +45,11 @@ const SearchWord = () => {
         </select>
       </fieldset>
 
-      <button type="submit">PEQUISAR</button>
+      <button type="submit">TRADUZIR</button>
 
       {loading && <Loader />}
     </form>
   );
 };
 
-export default SearchWord;
+export default TranslateWord;

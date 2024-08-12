@@ -5,14 +5,14 @@ const WordSelect = (props: ICardWordSelectProps) => {
 
   return (
     <article className="component__word component__word-select">
-      <header className="component__word_header">
+      <header>
         <h1 className="component__word_title">
           {original} - {translated}
         </h1>
         <input
           type="checkbox"
           name="input-word-selected"
-          className="component__word_input-select"
+          className="input__word-select"
           onChange={() => props.toggleWordSelect(props.wordData)}
         />
       </header>

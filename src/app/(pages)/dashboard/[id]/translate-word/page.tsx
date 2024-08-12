@@ -1,18 +1,18 @@
 'use client';
 import { useAppSelector } from '@/lib/redux/hooks';
-import SearchWord from '@/containers/SearchWord/SearchWord';
 import SelectWord from '@/containers/SelectWord/SelectWord';
+import TranslateWord from '@/containers/TranslateWord/TranslateWord';
 
 const Page = () => {
-  const words = useAppSelector((state) => state.searchResponse.original);
+  const words = useAppSelector((state) => state.translateResponse.original);
 
   return (
     <main className="page__search-word">
       <header className="page__header">
-        <h1>Pesquisar & Adicionar:</h1>
+        <h1>Traduzir & Adicionar:</h1>
       </header>
 
-      <SearchWord />
+      <TranslateWord />
 
       {words && <SelectWord data={words} />}
     </main>

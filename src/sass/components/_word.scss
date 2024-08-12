@@ -48,8 +48,14 @@
 }
 
 
-.component__word .__select{
-    &_input-select {
+.component__word-select{
+
+    & header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & input{
         display: flex;
         width: 20px;
         height: 20px;

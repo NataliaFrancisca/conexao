@@ -7,26 +7,27 @@ export default function Home() {
 
   return (
     <main className="page__home">
-      <header>
-        <h1>CONEXÃO</h1>
-        <p>Seu dicionário pessoal, simples e eficaz.</p>
-      </header>
+      <section className="section__wrapper">
+        <header>
+          <p>Seu dicionário pessoal, simples e eficaz.</p>
 
-      <Image
-        className="image__illustration"
-        src="images/illustration.svg"
-        alt="ilustração de uma pessoa sentada em uma cadeira, com um pé apoiado em um tijolo. Essa pessoa está usando um telefone"
-        width={329}
-        height={390}
-      />
+          <button
+            role="button"
+            onClick={() => router.push('/login')}
+            className="button-nav"
+          >
+            INICIAR
+          </button>
+        </header>
 
-      <button
-        role="button"
-        onClick={() => router.push('/login')}
-        className="button-nav"
-      >
-        INICIAR
-      </button>
+        <Image
+          className="image__illustration"
+          src="images/illustration.svg"
+          alt="ilustração de uma pessoa sentada em uma cadeira, com um pé apoiado em um tijolo. Essa pessoa está usando um telefone"
+          width={263}
+          height={320}
+        />
+      </section>
     </main>
   );
 }

@@ -45,7 +45,9 @@ const TranslateWord = () => {
         </select>
       </fieldset>
 
-      <button type="submit">TRADUZIR</button>
+      <button type="submit" className="btn__default">
+        TRADUZIR
+      </button>
 
       {loading && <Loader />}
     </form>

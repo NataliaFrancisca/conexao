@@ -31,7 +31,9 @@ const Page = () => {
           onChange={(e) => setListTitle(e.target.value)}
         />
 
-        <button type="submit">Criar Lista</button>
+        <button type="submit" className="btn__default">
+          Criar Lista
+        </button>
       </form>
     </main>
   );

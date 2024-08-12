@@ -11,6 +11,25 @@ body {
     display: flex;
 }
   
+
 button{
-    @include button();
+    &.btn__default{
+        @include button();
+    }
+
+    &.btn__bg-google{
+        @include buttonGoogle();
+    }
+
+    &.btn__bg-red{
+        @include buttonRed();
+    }
+
+    &.btn__bg-green {
+        @include buttonGreen();
+    }
+
+    &.btn__with-image {
+        @include buttonWithImage();
+    }
 }

@@ -1,8 +1,17 @@
 .page__dashboard{
     @include page();
     gap: 42px;
+    position: relative;
     
     & button{
         margin-top: auto;
+    }
+
+    & button.button__icon{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: transparent;
+        cursor: pointer;
     }
 }

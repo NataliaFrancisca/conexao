@@ -66,15 +66,24 @@ const Page = ({ params }: { params: { id: string } }) => {
 
       <section className="section__buttons">
         {listData.words.length > 0 && (
-          <button onClick={() => navigateDashboardSubPages('study')}>
+          <button
+            className="btn__default"
+            onClick={() => navigateDashboardSubPages('study')}
+          >
             ESTUDAR
           </button>
         )}
 
-        <button onClick={() => navigateDashboardSubPages('translate-word')}>
+        <button
+          className="btn__default"
+          onClick={() => navigateDashboardSubPages('translate-word')}
+        >
           TRADUZIR PALAVRA
         </button>
-        <button className="btn__bg-red" onClick={() => openDialog()}>
+        <button
+          className="btn__default btn__bg-red"
+          onClick={() => openDialog()}
+        >
           DELETAR LISTA
         </button>
       </section>

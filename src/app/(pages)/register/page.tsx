@@ -83,7 +83,7 @@ const Page = () => {
           </fieldset>
 
           <div className="div__group-buttons">
-            <button type="submit" className="btn__with-image">
+            <button type="submit" className="btn__default btn__with-image">
               <Image
                 src="icon/email.svg"
                 width={20}
@@ -94,7 +94,7 @@ const Page = () => {
             </button>
 
             <button
-              className="btn__with-image btn__bg-google"
+              className="btn__default btn__with-image btn__bg-google"
               onClick={async (e) => await onSubmit(e, true)}
             >
               <Image

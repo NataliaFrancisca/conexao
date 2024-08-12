@@ -106,22 +106,6 @@
         transition: all ease-in-out 0.4s;
         box-shadow: 6px 6px #004fa7;
     }
-
-    &.btn__bg-google{
-        @include buttonGoogle();
-    }
-
-    &.btn__with-image {
-        @include buttonWithImage();
-    }
-    
-    &.btn__bg-red {
-        @include buttonRed();
-    }
-    
-    &.btn__bg-green {
-        @include buttonGreen();
-    }
 }
 
 @mixin buttonWithImage() {

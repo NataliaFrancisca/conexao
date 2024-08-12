@@ -7,6 +7,7 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   updateProfile,
   User,
 } from 'firebase/auth';
@@ -32,6 +33,25 @@ export class authService {
     await updateProfile(firebaseUser, {
       displayName: userNameDisplayName,
     });
+  }
+
+  async logout() {
+    try {
+      await signOut(auth);
+
+      return {
+        status: 200,
+        message:
+          'Logout realizado com sucesso. Aguarde enquanto você é redirecionado',
+      };
+    } catch (error) {
+      const ERROR_MESSAGE = error as AuthError;
+
+      return {
+        status: GET_HTTP_ERROR_STATUS(ERROR_MESSAGE.code),
+        message: ERROR_MESSAGE.code,
+      };
+    }
   }
 
   async signIn(loginData: IAuthFormInputValues) {

@@ -14,7 +14,7 @@ export default function Home() {
           <button
             role="button"
             onClick={() => router.push('/login')}
-            className="button-nav"
+            className="btn__default"
           >
             INICIAR
           </button>

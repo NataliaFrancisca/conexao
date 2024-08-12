@@ -28,12 +28,14 @@ const Page = () => {
 
       <section className="section__button">
         <button
+          className="btn__default"
           onClick={() => updateCurrentWord.decrement()}
           disabled={currentWord === 0}
         >
           VOLTAR
         </button>
         <button
+          className="btn__default"
           onClick={() => updateCurrentWord.increment()}
           disabled={currentWord === randomWordList.length - 1}
         >

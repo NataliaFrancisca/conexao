@@ -22,7 +22,11 @@ const SelectWord = (props: { data: IWord[] }) => {
         <Alert message={alertMessage.message} status={alertMessage.status} />
       )}
 
-      {props.data.length > 0 && <button type="submit">ADICIONAR</button>}
+      {props.data.length > 0 && (
+        <button type="submit" className="btn__default">
+          ADICIONAR
+        </button>
+      )}
     </form>
   );
 };

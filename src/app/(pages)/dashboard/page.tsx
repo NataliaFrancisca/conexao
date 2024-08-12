@@ -1,12 +1,11 @@
 'use client';
+import Image from 'next/image';
+import { useDashboardLogic } from './useDashboardLogic';
 import Loader from '@/components/Loader/Loader';
 import Lists from '@/containers/Lists/Lists';
-import { useSession } from '@/hooks/useSession';
-import { useRouter } from 'next/navigation';
 
 const Page = () => {
-  const router = useRouter();
-  const { user } = useSession();
+  const { user, router, logOut } = useDashboardLogic();
 
   if (user === null) {
     return (
@@ -26,9 +25,21 @@ const Page = () => {
         </p>
       </header>
 
+      <button className="button__icon" onClick={async () => await logOut()}>
+        <Image
+          src="icon/logout.svg"
+          alt="logout icone"
+          width={18}
+          height={18}
+        />
+      </button>
+
       <Lists />
 
-      <button onClick={() => router.push(`/dashboard/create-list`)}>
+      <button
+        className="btn__default"
+        onClick={() => router.push(`/dashboard/create-list`)}
+      >
         CRIAR LISTA
       </button>
     </main>

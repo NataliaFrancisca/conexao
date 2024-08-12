@@ -2,50 +2,79 @@
     background-color: #FEFEFD;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
     min-height: 100dvh;
     width: 100%;
     padding: 1.8rem;
-    gap: 30px;
 
-    header{
+    .section__wrapper{
         display: flex;
-        flex-direction: column;
-        gap: 20px;
-        text-align: start;
-
-        h1 {
-            color: $black-color;
-            font-family: "Rammetto One", sans-serif;
-            font-size: 24px;
-            line-height: 1;
-        }
-        
-        p {
-            font-size: 26px;
-            font-weight: 400;
-        }
-    }
-
-    img.image__illustration{
+        border: solid $black-color 4px;
+        padding: 60px 40px;
+        border-radius: 60px;
         width: 100%;
-        height: auto;
+
+        header{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            width: 100%;
+            gap: 40px;
+
+            p {
+                width: 400px;
+                font-size: 3rem;
+            }
+
+            button{
+                width: 200px;
+                align-self: flex-start;
+            }
+        }
+
+        img{
+            width: auto;
+            height: 500px;
+        }
     }
 
-    button {
-        align-self: flex-end;
-        width: 161px;
-        padding: 18px 10px;
+    @media screen and (min-width: 700px) and (max-width: 930px) {
+        .section__wrapper{
+            gap: 10px;
+
+            img{
+                height: 400px;
+                margin: auto;
+            }
+
+            header{
+                width: 50%;
+
+                p{
+                    width: 100%;
+                }
+            }
+        }
     }
 
-    
-    @media screen and (min-width: 490px) {
-        align-items: start;
-        justify-content: space-between;
+    @media screen and (min-width: 300px) and (max-width: 700px) {
+        .section__wrapper{
+            width: 100%;
+            flex-direction: column-reverse;
+            border: none;
+            border-radius: 0px;
+            padding: 0px;
+            gap: 60px;
 
-        img.image__illustration{
-          display: none;
+            header{
+                p{
+                    width: auto;
+                    font-size: 2.4rem;
+                }
+            }
+
+            img{
+                height: auto;
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
@@ -7,27 +6,20 @@ export default function Home() {
 
   return (
     <main className="page__home">
-      <section className="section__wrapper">
-        <header>
-          <p>Seu dicionário pessoal, simples e eficaz.</p>
+      <section className="section__background"></section>
+      <header>
+        <p>
+          Seu <b>dicionário</b> pessoal, simples e eficaz.
+        </p>
 
-          <button
-            role="button"
-            onClick={() => router.push('/login')}
-            className="btn__default"
-          >
-            INICIAR
-          </button>
-        </header>
-
-        <Image
-          className="image__illustration"
-          src="images/illustration.svg"
-          alt="ilustração de uma pessoa sentada em uma cadeira, com um pé apoiado em um tijolo. Essa pessoa está usando um telefone"
-          width={263}
-          height={320}
-        />
-      </section>
+        <button
+          role="button"
+          onClick={() => router.push('/login')}
+          className="btn__default"
+        >
+          INICIAR
+        </button>
+      </header>
     </main>
   );
 }

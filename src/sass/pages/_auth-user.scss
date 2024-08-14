@@ -48,14 +48,17 @@
     }
 
     @media screen and (min-width: 1200px) {
+        background-color: #f0f4f9;
+        background-image: url(/images/desktop-background.svg);
+
         & .section__wrapper{
             width: 90%;
-            background-color: white;
             flex-direction: row;
             margin: auto;
-            border-radius: 60px;
-            border: solid $black-color 4px;
+            background-color: $white-color;
             padding: 60px 80px;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
         }
     
         form {

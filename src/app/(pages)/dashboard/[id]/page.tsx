@@ -42,10 +42,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       onDragOver={allowDrop}
     >
       <header className="page__header">
-        <h1>
-          Lista:
-          {listData.title}
-        </h1>
+        <h1>Lista: {listData.title}</h1>
       </header>
 
       {listData.words.length > 0 && <Words data={listData.words} />}

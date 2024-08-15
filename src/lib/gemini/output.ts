@@ -1,12 +1,16 @@
 export const API_OBJ_OUTPUT = {
   original:
-    'trazer o valor original[INPUT] ou que os nativos mais usam, usando o idioma [INPUT]',
-  translated: 'trazer o valor objeto original traduzido para o idioma [OUTPUT]',
-  meaning: 'o que essa palavra significa - deve estar em PORTUGUÊS',
-  examples:
-    'retornar um objeto com exemplo usando a palavra ou frase, o objeto deve ter as seguintes propriedades {phraseInput: exemplo da frase usando o idioma indicado no INPUT, phraseOutput: traduzir a frase do phraseInput usando o idioma indicado no OUTPUT}',
+    'Retorne a palavra/frase original na forma mais comum ou usada por nativos, no idioma especificado [INPUT].',
+  translated: 'Traduza o valor original para o idioma especificado [OUTPUT].',
+  meaning: 'Descreva o significado da palavra/frase em PORTUGUÊS.',
+  examples: {
+    phraseInput:
+      'Forneça um exemplo de frase usando a palavra/frase original no idioma [INPUT].',
+    phraseOutput: 'Traduza a frase do phraseInput para o idioma [OUTPUT].',
+  },
 };
 
 export const API_OUTPUT_OBJ_RESPONSE = `
-    Quero que retorne um ARRAY[] com a tradução da palavra que o usuário inseriu, e mais 3 traduções que tem relação com a palavra que o usuário inseriu. Cada tradução deve retornar um objeto, que deve ter as seguintes propriedade: ${JSON.stringify(API_OBJ_OUTPUT)}.
+  Retorne um ARRAY[] com a tradução da palavra/frase inserida pelo usuário, além de mais 3 traduções relacionadas. 
+  Cada tradução deve ser um objeto contendo as seguintes propriedades: ${JSON.stringify(API_OBJ_OUTPUT)}.
 `;

@@ -35,10 +35,10 @@
         backface-visibility: hidden;
         
         & h1{
-            font-size: 46px;
+            font-size: 42px;
             text-align: center;
-            font-family: $title-font;
             text-wrap: wrap;
+            text-transform: capitalize;
         }
     }
 

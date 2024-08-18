@@ -23,11 +23,8 @@ export const useListLogic = (listId: string) => {
   const getList = async () => {
     const response = await controller.fetchList(listId);
 
-    if (!response.requestWasSuccess) {
-      setAlertMessage({
-        message: response.message,
-        status: response.requestWasSuccess,
-      });
+    if (!response.status) {
+      setAlertMessage(response);
     }
 
     if (response.data) {
@@ -36,14 +33,13 @@ export const useListLogic = (listId: string) => {
   };
 
   const deleteList = async () => {
+    setAlertMessage(null);
+
     const response = await controller.deleteList(listId);
 
-    setAlertMessage({
-      message: response.message,
-      status: response.requestWasSuccess,
-    });
+    setAlertMessage(response);
 
-    if (response.requestWasSuccess) {
+    if (response.status) {
       setTimeout(() => {
         router.back();
       }, 2400);
@@ -66,7 +62,7 @@ export const useListLogic = (listId: string) => {
     }
   };
 
-  const sendListUpdated = async (wordId: string) => {
+  const updateList = async (wordId: string) => {
     const controller = new WordController();
 
     if (listData) {
@@ -77,11 +73,8 @@ export const useListLogic = (listId: string) => {
         wordId,
       );
 
-      if (!response.requestWasSuccess) {
-        setAlertMessage({
-          message: response.message,
-          status: response.requestWasSuccess,
-        });
+      if (!response.status) {
+        setAlertMessage(response);
       }
     }
   };
@@ -90,6 +83,6 @@ export const useListLogic = (listId: string) => {
     listData,
     alertMessage,
     deleteList,
-    sendListUpdated,
+    updateList,
   };
 };

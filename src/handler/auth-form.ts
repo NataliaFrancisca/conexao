@@ -24,7 +24,7 @@ export const handleAuthForm = (props: IAuthFormValidatorConstructor) => {
 
     const response = await authController.onSubmitUserAuth(withGoogle);
 
-    if (!response.requestWasSuccessful) {
+    if (!response.status) {
       validateFirebaseResponse(response.message);
     }
 

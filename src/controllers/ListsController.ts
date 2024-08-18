@@ -15,20 +15,20 @@ export class ListsController {
       if (response.data.length === 0) {
         return {
           message: 'Nenhuma lista foi criada.',
-          requestWasSuccess: undefined,
+          status: undefined,
         };
       }
 
       return {
         message: response.message,
-        requestWasSuccess: true,
+        status: true,
         data: response.data as IList[],
       };
     }
 
     return {
       message: response.message,
-      requestWasSuccess: false,
+      status: false,
     };
   };
 }

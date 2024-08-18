@@ -39,14 +39,14 @@ export class UserAuthController {
     if (response.status === 200) {
       return {
         message: response.message,
-        requestWasSuccessful: true,
+        status: true,
         data: response.data,
       };
     }
 
     return {
       message: response.message,
-      requestWasSuccessful: false,
+      status: false,
     };
   };
 }

@@ -32,16 +32,13 @@ export const usePageLogic = () => {
   const create = async (listTitle: string) => {
     const response = await controller.createList(listTitle);
 
-    if (response.requestWasSuccess) {
+    if (response.status) {
       setTimeout(() => {
         router.back();
       }, 2400);
     }
 
-    setAlertMessage({
-      message: response.message,
-      status: response.requestWasSuccess,
-    });
+    setAlertMessage(response);
 
     setLoading(false);
   };

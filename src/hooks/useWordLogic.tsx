@@ -16,11 +16,8 @@ export const useWordLogic = () => {
   const deleteWord = async (list: IList, wordId: string) => {
     const response = await controller.removeWord(list, wordId);
 
-    if (!response.requestWasSuccess) {
-      setAlertMessage({
-        message: response.message,
-        status: response.requestWasSuccess,
-      });
+    if (!response.status) {
+      setAlertMessage(response);
     }
   };
 
@@ -28,12 +25,9 @@ export const useWordLogic = () => {
     setLoading(true);
     const response = await controller.addWord(listId, data);
 
-    setAlertMessage({
-      message: response.message,
-      status: response.requestWasSuccess,
-    });
+    setAlertMessage(response);
 
-    if (response.requestWasSuccess) {
+    if (response.status) {
       setTimeout(() => {
         router.back();
       }, 2600);

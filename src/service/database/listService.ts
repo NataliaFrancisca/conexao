@@ -134,7 +134,10 @@ export class ListService {
 
       snapshot.forEach((doc) => {
         if (doc.id === id) {
-          list = doc.data();
+          list = {
+            ...doc.data(),
+            id,
+          };
         }
       });
 

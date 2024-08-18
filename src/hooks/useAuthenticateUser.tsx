@@ -22,15 +22,12 @@ export const useAuthenticateUser = (authOption: EAuthFormOption) => {
   const validateFirebaseResponse = async (withGoogle: boolean) => {
     const response = await handler.submitAuth(withGoogle);
 
-    if (!response.requestWasSuccessful) {
+    if (!response.status) {
       setErrors(handler.formValidator.errors);
       return false;
     }
 
-    setAlertMessage({
-      message: response.message,
-      status: true,
-    });
+    setAlertMessage(response);
 
     setTimeout(() => {
       router.push('/dashboard');

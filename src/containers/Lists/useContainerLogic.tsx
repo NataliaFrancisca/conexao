@@ -10,11 +10,8 @@ export const useContainerLogic = () => {
     const controller = new ListsController();
     const response = await controller.fetchLists();
 
-    if (response.requestWasSuccess === undefined) {
-      setAlertMessage({
-        message: response.message,
-        status: response.requestWasSuccess,
-      });
+    if (response.status === undefined) {
+      setAlertMessage(response);
     }
 
     if (response.data) {

@@ -15,21 +15,21 @@ export class ListController {
       if (response.data.words.length === 0) {
         return {
           message: 'Nenhuma palavra foi salva nessa lista.',
-          requestWasSuccess: undefined,
+          status: undefined,
           data: response.data as IList,
         };
       }
 
       return {
         message: response.message,
-        requestWasSuccess: true,
+        status: true,
         data: response.data as IList,
       };
     }
 
     return {
       message: response.message,
-      requestWasSuccess: false,
+      status: false,
     };
   };
 
@@ -39,13 +39,13 @@ export class ListController {
     if (response.status === 200) {
       return {
         message: response.message,
-        requestWasSuccess: true,
+        status: true,
       };
     }
 
     return {
       message: response.message,
-      requestWasSuccess: false,
+      status: false,
     };
   };
 
@@ -54,12 +54,12 @@ export class ListController {
     if (response.status === 200) {
       return {
         message: response.message,
-        requestWasSuccess: true,
+        status: true,
       };
     }
     return {
       message: response.message,
-      requestWasSuccess: false,
+      status: false,
     };
   };
 }

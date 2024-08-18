@@ -14,7 +14,7 @@ export class GeminiController {
       return {
         message:
           'Ocorreu um erro ao tentar buscar a tradução. Por favor, tente novamente mais tarde',
-        requestWasSuccess: false,
+        status: false,
       };
     }
 
@@ -24,13 +24,13 @@ export class GeminiController {
       return {
         message:
           'Ocorreu um erro ao tentar buscar a tradução. Por favor, tente novamente mais tarde',
-        requestWasSuccess: false,
+        status: false,
       };
     }
 
     return {
       message: 'Requisição realizada com sucesso.',
-      requestWasSuccess: true,
+      status: true,
       data: JSON.parse(response),
     };
   };

@@ -7,7 +7,7 @@ const List = (props: { data: IList }) => {
 
   return (
     <article
-      className="container__list"
+      className="component__list"
       key={id}
       onClick={() => router.push(`/dashboard/${id}`)}
     >

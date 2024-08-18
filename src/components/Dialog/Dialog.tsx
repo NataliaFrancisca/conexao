@@ -16,8 +16,13 @@ const Dialog = (props: { data: IDialogProps }) => {
       <p>{message}</p>
 
       <section className="section__buttons_row">
-        <button onClick={() => closeDialog()}>CANCELAR</button>
-        <button className="__bg-red" onClick={() => handleConfirm()}>
+        <button className="btn__default" onClick={() => closeDialog()}>
+          CANCELAR
+        </button>
+        <button
+          className="btn__default btn__bg-red"
+          onClick={() => handleConfirm()}
+        >
           SIM
         </button>
       </section>

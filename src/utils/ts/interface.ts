@@ -1,4 +1,15 @@
+import { ChangeEvent } from 'react';
 import { EAuthFormOption } from './enums';
+
+export interface ILabeledInput {
+  label: string;
+  input: {
+    type: string;
+    id: string;
+    placeholder: string;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  };
+}
 
 export interface ICardWordSelectProps {
   wordData: IWord;

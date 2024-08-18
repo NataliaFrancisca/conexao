@@ -17,7 +17,7 @@ export class WordController {
       return {
         message:
           'Você não selecionou nenhuma palavra. Por favor, selecione para poder prosseguir.',
-        requestWasSuccess: false,
+        status: false,
       };
     }
 
@@ -26,14 +26,14 @@ export class WordController {
     if (response.status === 200) {
       return {
         message: `${values.length > 1 ? 'Palavras adicionadas' : 'Palavra adicionada'} com sucesso. Aguarde enquanto você é redirecionado `,
-        requestWasSuccess: true,
+        status: true,
       };
     }
 
     return {
       message:
         'Ocorreu um erro ao tentar adicionar as palavras. Por favor, tente novamente mais tarde.',
-      requestWasSuccess: false,
+      status: false,
     };
   };
 
@@ -43,7 +43,7 @@ export class WordController {
     if (word == undefined) {
       return {
         message: 'Ocorreu um erro ao tentar buscar os dados da palavra.',
-        requestWasSuccess: false,
+        status: false,
       };
     }
 
@@ -53,14 +53,14 @@ export class WordController {
       return {
         message:
           'Palavra removida com sucesso. Aguarde enquanto você é redirecionado',
-        requestWasSuccess: true,
+        status: true,
       };
     }
 
     return {
       message:
         'Ocorreu um erro ao tentar deletar a palavra. Por favor, tente novamente mais tarde.',
-      requestWasSuccess: false,
+      status: false,
     };
   };
 }

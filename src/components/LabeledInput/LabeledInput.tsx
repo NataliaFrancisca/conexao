@@ -1,14 +1,4 @@
-import { ChangeEvent } from 'react';
-
-interface ILabeledInput {
-  label: string;
-  input: {
-    type: string;
-    id: string;
-    placeholder: string;
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  };
-}
+import { ILabeledInput } from '@/utils/ts/interface';
 
 const LabeledInput = (props: ILabeledInput) => {
   const { label, input } = props;

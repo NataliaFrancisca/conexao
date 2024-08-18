@@ -8,15 +8,11 @@ export default function Home() {
     <main className="page__home">
       <section className="section__background"></section>
       <header>
-        <p>
+        <p data-testid="home__text">
           Seu <b>dicionário</b> pessoal, simples e eficaz.
         </p>
 
-        <button
-          role="button"
-          onClick={() => router.push('/login')}
-          className="btn__default"
-        >
+        <button onClick={() => router.push('/login')} className="btn__default">
           INICIAR
         </button>
       </header>

@@ -32,9 +32,7 @@ const Page = () => {
 
         {loading && <Loader />}
 
-        {alertMessage && (
-          <Alert message={alertMessage.message} status={alertMessage.status} />
-        )}
+        {alertMessage && <Alert props={alertMessage} />}
 
         {errors && errors.length > 0 && <ErrorMessage errors={errors} />}
 

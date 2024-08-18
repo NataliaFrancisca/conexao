@@ -18,9 +18,7 @@ const SelectWord = (props: { data: IWord[] }) => {
 
       {loading && <Loader />}
 
-      {alertMessage && (
-        <Alert message={alertMessage.message} status={alertMessage.status} />
-      )}
+      {alertMessage && <Alert props={alertMessage} />}
 
       {props.data.length > 0 && (
         <button type="submit" className="btn__default">

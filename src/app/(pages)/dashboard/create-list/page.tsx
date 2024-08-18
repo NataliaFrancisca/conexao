@@ -15,9 +15,7 @@ const Page = () => {
         </p>
       </header>
 
-      {alertMessage && (
-        <Alert message={alertMessage.message} status={alertMessage.status} />
-      )}
+      {alertMessage && <Alert props={alertMessage} />}
 
       {loading && <Loader />}
 

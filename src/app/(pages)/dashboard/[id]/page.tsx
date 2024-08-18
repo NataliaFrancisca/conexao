@@ -3,26 +3,21 @@ import Loader from '@/components/Loader/Loader';
 import Alert from '@/components/Alert/Alert';
 import Dialog from '@/components/Dialog/Dialog';
 import Words from '@/components/Words/Words';
+import ListButtons from '@/containers/ListButtons/ListButtons';
 import { handleDrop, allowDrop } from '@/handler/drag-and-drop';
-import { usePageLogic } from './usePageLogic';
+import { useDialogHandler } from '@/hooks/useDialogHandler';
+import { useListLogic } from '@/hooks/useListLogic';
 
 const Page = ({ params }: { params: { id: string } }) => {
-  const {
-    alertMessage,
-    listData,
-    dialogState,
-    sendListUpdated,
-    deleteList,
-    openDialog,
-    navigateDashboardSubPages,
-  } = usePageLogic(params.id);
+  const { dialogState } = useDialogHandler();
+  const { listData, alertMessage, deleteList, updateList } = useListLogic(
+    params.id,
+  );
 
   if (listData === null && alertMessage?.status === false) {
     return (
       <main className="page__list">
-        {alertMessage && (
-          <Alert message={alertMessage.message} status={alertMessage.status} />
-        )}
+        {alertMessage && <Alert props={alertMessage} />}
       </main>
     );
   }
@@ -38,7 +33,7 @@ const Page = ({ params }: { params: { id: string } }) => {
   return (
     <main
       className="page__list"
-      onDrop={(e) => handleDrop(e, sendListUpdated)}
+      onDrop={(e) => handleDrop(e, updateList)}
       onDragOver={allowDrop}
     >
       <header className="page__header">
@@ -47,9 +42,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
       {listData.words.length > 0 && <Words data={listData.words} />}
 
-      {alertMessage && (
-        <Alert message={alertMessage.message} status={alertMessage.status} />
-      )}
+      {alertMessage && <Alert props={alertMessage} />}
 
       {dialogState && (
         <Dialog
@@ -61,29 +54,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         />
       )}
 
-      <section className="section__buttons">
-        {listData.words.length > 0 && (
-          <button
-            className="btn__default"
-            onClick={() => navigateDashboardSubPages('study')}
-          >
-            ESTUDAR
-          </button>
-        )}
-
-        <button
-          className="btn__default"
-          onClick={() => navigateDashboardSubPages('translate-word')}
-        >
-          TRADUZIR PALAVRA
-        </button>
-        <button
-          className="btn__default btn__bg-red"
-          onClick={() => openDialog()}
-        >
-          DELETAR LISTA
-        </button>
-      </section>
+      <ListButtons listData={listData} />
     </main>
   );
 };

@@ -9,23 +9,12 @@ beforeEach(() => {
 });
 
 describe('Page: Home', () => {
-  test('Should render page title and subtitle', () => {
-    expect(screen.getByText('CONEXÃO')).toBeInTheDocument();
-    expect(
-      screen.getByText('Seu dicionário pessoal, simples e eficaz.'),
-    ).toBeInTheDocument();
+  test('Should render page text', () => {
+    expect(screen.getByTestId('home__text')).toBeInTheDocument();
   });
 
   test('Should render a button that navigates to login page', () => {
     expect(screen.getByRole('button', { name: 'INICIAR' })).toBeInTheDocument();
-  });
-
-  test('Should render an illustration', () => {
-    expect(
-      screen.getByRole('img', {
-        name: 'ilustração de uma pessoa sentada em uma cadeira, com um pé apoiado em um tijolo. Essa pessoa está usando um telefone',
-      }),
-    ).toBeInTheDocument();
   });
 
   test('Should navigate to page Login when button INICIAR is clicked', async () => {

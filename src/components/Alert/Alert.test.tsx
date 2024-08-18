@@ -2,31 +2,38 @@ import { render, screen } from '@testing-library/react';
 import { describe, test, expect } from 'vitest';
 import Alert from './Alert';
 
-const mockAlertMessage = {
-  error:
+const mockSuccessful = {
+  message: 'Lista salva com sucesso. Aguarde enquanto você é redirecionado',
+  status: true,
+};
+
+const mockFailed = {
+  message:
     'Ocorreu um erro ao tentar buscar a lista. Por favor, tente novamente mais tarde',
-  success: 'Lista salva com sucesso. Aguarde enquanto você é redirecionado',
-  info: 'Nenhuma palavra cadastrada nessa lista',
+  status: false,
+};
+
+const mockInfo = {
+  message: 'Nenhuma palavra cadastrada nessa lista',
+  status: undefined,
 };
 
 describe('Component <Alert />', () => {
-  test('Should render an alert message', () => {
-    render(<Alert message={mockAlertMessage.error} status={false} />);
-    expect(screen.getByText(mockAlertMessage.error));
-  });
-
-  test('Should component have a style-class based on alert status [error]', () => {
-    render(<Alert message={mockAlertMessage.error} status={false} />);
+  test('Should render an Alert component and have a style-class based on alert status [error]', () => {
+    render(<Alert props={mockFailed} />);
+    expect(screen.getByText(mockFailed.message));
     expect(screen.getByRole('article')).toHaveClass('__error');
   });
 
-  test('Should component have a style-class based on alert status [success]', () => {
-    render(<Alert message={mockAlertMessage.success} status={true} />);
+  test('Should render an Alert component and have a style-class based on alert status [success]', () => {
+    render(<Alert props={mockSuccessful} />);
+    expect(screen.getByText(mockSuccessful.message));
     expect(screen.getByRole('article')).toHaveClass('__success');
   });
 
-  test('Should component have a style-class based on alert status [info]', () => {
-    render(<Alert message={mockAlertMessage.success} status={undefined} />);
+  test('Should render an Alert component and have a style-class based on alert status [info]', () => {
+    render(<Alert props={mockInfo} />);
+    expect(screen.getByText(mockInfo.message));
     expect(screen.getByRole('article')).toHaveClass('__info');
   });
 });
